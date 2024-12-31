@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../env/color.dart';
+import 'package:pengajuan_dokumen/env/color.dart';
 import '../login.dart';
 import 'pengajuan_dokumen_admin_screen.dart';
 

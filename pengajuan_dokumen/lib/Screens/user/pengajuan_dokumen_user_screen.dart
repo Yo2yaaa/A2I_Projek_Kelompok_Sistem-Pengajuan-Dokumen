@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
-
-import '../../env/color.dart';
+import 'package:pengajuan_dokumen/env/color.dart';
 import '../login.dart';
-import 'dashboard_user_screen.dart';
-import 'kotak_pesan_user_screen.dart';
 
-class PengajuanDokumenUser extends StatelessWidget {
-  const PengajuanDokumenUser({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: PengajuanDokumenUser(),
+    );
+  }
+}
+
+class PengajuanDokumenUser extends StatefulWidget {
+  @override
+  _PengajuanDokumenUserState createState() => _PengajuanDokumenUserState();
+}
+
+class _PengajuanDokumenUserState extends State<PengajuanDokumenUser> {
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +34,7 @@ class PengajuanDokumenUser extends StatelessWidget {
             Expanded(
               child: Flexible(
                 child: Text(
-                  'Andini Tidore',
+                  'Mahasiswa',
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ),
@@ -72,38 +85,6 @@ class PengajuanDokumenUser extends StatelessWidget {
                               fontSize: 24,
                             ))))),
             ListTile(
-              leading: const Icon(Icons.home_filled),
-              title: const Text('Beranda'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => DashboardUser()),
-                );
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.file_copy_rounded),
-              title: const Text('Pengajuan Dokumen'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => PengajuanDokumenUser()),
-                );
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.mark_email_unread_rounded),
-              title: const Text('Kotak Pesan'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => KotakPesanUserScreen()),
-                );
-              },
-            ),
-            ListTile(
               leading: const Icon(Icons.logout),
               title: const Text('Keluar'),
               onTap: () {
@@ -118,15 +99,8 @@ class PengajuanDokumenUser extends StatelessWidget {
       ),
       drawerScrimColor: Color.fromARGB(255, 6, 150, 114).withOpacity(0.8),
 
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.lightBlue.shade100, Colors.white],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
-        child: Center(
+      body: 
+        Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -186,8 +160,7 @@ class PengajuanDokumenUser extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
+      );   
   }
 
   Future<void> _pickFile(BuildContext context) async {
@@ -213,4 +186,10 @@ class PengajuanDokumenUser extends StatelessWidget {
       );
     }
   }
+}
+
+class DrawerControllerStateNotification extends Notification {
+  final bool isOpen;
+
+  DrawerControllerStateNotification(this.isOpen);
 }

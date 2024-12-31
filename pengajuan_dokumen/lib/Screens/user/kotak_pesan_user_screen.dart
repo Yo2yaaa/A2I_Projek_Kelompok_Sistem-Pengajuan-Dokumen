@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../env/color.dart';
+import 'package:pengajuan_dokumen/env/color.dart';
 import '../login.dart';
-import 'dashboard_user_screen.dart';
-import 'pengajuan_dokumen_user_screen.dart';
 
 class KotakPesanUserScreen extends StatefulWidget {
+  const KotakPesanUserScreen({super.key});
+
   @override
   _KotakPesanUserScreen createState() => _KotakPesanUserScreen();
 }
@@ -15,14 +15,14 @@ class _KotakPesanUserScreen extends State<KotakPesanUserScreen> {
       "nama": "Andini Tidore",
       "npm": "07352211046",
     },
-    {
-      "nama": "Inda Anwar",
-      "npm": "07352211067",
-    },
-    {
-      "nama": "Annisa Sabur",
-      "npm": "07352211091",
-    },
+    // {
+    //   "nama": "Inda Anwar",
+    //   "npm": "07352211067",
+    // },
+    // {
+    //   "nama": "Annisa Sabur",
+    //   "npm": "07352211091",
+    // },
   ];
 
   void showMessage(BuildContext context, String message) {
@@ -106,39 +106,6 @@ class _KotakPesanUserScreen extends State<KotakPesanUserScreen> {
                               color: Colors.white,
                               fontSize: 24,
                             ))))),
-            ListTile(
-              leading: const Icon(Icons.home_filled),
-              title: const Text('Beranda'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const DashboardUser()),
-                );
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.file_copy_rounded),
-              title: const Text('Pengajuan Dokumen'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => PengajuanDokumenUser()),
-                );
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.mark_email_unread_rounded),
-              title: const Text('Kotak Pesan'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => KotakPesanUserScreen()),
-                );
-              },
-            ),
             ListTile(
               leading: const Icon(Icons.logout),
               title: const Text('Keluar'),
